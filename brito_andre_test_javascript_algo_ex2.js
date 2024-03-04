@@ -1,17 +1,4 @@
 //1 -  JAVASCRIPT "F21" function which accepts 1 input parameter "A" of table type with 9 positions as input.
-// input parameter "A"
-var A = new Array(9);
-    A[0] = "1 2 3 4 5 6 7 8 9";
-    A[1] = "4 5 6 7 8 9 1 2 3";
-    A[2] = "7 8 9 1 2 3 4 5 6";
-    A[3] = "2 3 1 5 6 4 8 9 7";
-    A[4] = "5 6 7 8 9 1 2 3 4";
-    A[5] = "8 9 4 2 3 7 5 6 1";
-    A[6] = "3 1 2 6 4 5 9 7 8";
-    A[7] = "6 4 5 9 7 8 3 1 2";
-    A[8] = "9 7 8 3 1 2 6 4 5";
-
-
 function processTable(A) {
     //2 - verify that all the positions are numbers (from 1 to 9) and all different from each other. 
     var checkedDigit = {};
@@ -28,14 +15,21 @@ function processTable(A) {
 
             // Check if the number is not a valid number between 1 and 9 or has been encountered before
             if (isNaN(num) || num < 1 || num > 9 || checkedDigit[num]) {
-                return false; // // if the input array is not good 
+                return false; // 3- If the input array is not good return false
             }
 
-            checkedDigit[num] = true; 
+            checkedDigit[num] = true;
         }
     }
 
-    return true; // if the input array is good (failing)
+    return true; // 3 If the input array is good return true
 }
 
+// Call the processTable function with the variable array_number
+const isGoodArray = processTable(array_number);
 
+// Output the result
+console.log("Is the input array good?", isGoodArray);
+
+// Attach the processTable function to the window object
+window.processTable = processTable;
